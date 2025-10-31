@@ -4,6 +4,7 @@ import cors from "cors";
 
 const app = express();
 
+const PORT = process.env.PORT || 8000;
 let persons = [
   {
     id: "1",
@@ -26,10 +27,10 @@ let persons = [
     number: "39-23-6423122",
   },
 ];
-const PORT = process.env.PORT || 8000;
 
 app.use(express.json());
 app.use(cors());
+app.use(express.static("dist"));
 
 app.use(
   morgan(function (tokens, req, res) {
